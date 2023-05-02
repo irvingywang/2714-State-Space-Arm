@@ -6,6 +6,7 @@ package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.subsystems.Elbow;
+import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -41,10 +42,10 @@ public class RobotContainer {
    */
   private void configureBindings() {
     m_driverController.a()
-      .onTrue(new InstantCommand(() -> m_elbow.setTargetKinematicAngleRadians(0)));
+      .onTrue(new InstantCommand(() -> m_elbow.setTargetKinematicAngle(Units.degreesToRadians(0))));
 
     m_driverController.b()
-      .onTrue(new InstantCommand(() -> m_elbow.setTargetKinematicAngleRadians(90)));
+      .onTrue(new InstantCommand(() -> m_elbow.setTargetKinematicAngle(Units.degreesToRadians(90))));
   }
 
   /**
